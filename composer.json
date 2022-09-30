@@ -1,0 +1,33 @@
+{
+    "name": "sparkinzy/dcat-extension-client",
+    "alias": "",
+    "description": "Dcat扩展市场",
+    "type": "library",
+    "version" : "1.0.0",
+    "keywords": ["dcat-admin", "extension"],
+    "homepage": "https://github.com/sparkinzy/dcat-extension-client",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "sparkinzy",
+            "email": "sparkinzy@163.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.0",
+        "dcat/laravel-admin": "~2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sparkinzy\\DcatExtensionClient\\": "src/"
+        }
+    },
+    "extra": {
+        "dcat-admin": "Sparkinzy\\DcatExtensionClient\\DcatExtensionClientServiceProvider",
+        "laravel": {
+            "providers": [
+                "Sparkinzy\\DcatExtensionClient\\DcatExtensionClientServiceProvider"
+            ]
+        }
+    }
+}
