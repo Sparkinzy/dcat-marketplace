@@ -4,6 +4,8 @@ dcat admin 扩展市场
 
 当前收录的扩展总计 <b>47</b> 个
 
+![extension-market](https://tvax4.sinaimg.cn/large/a16fd57dly1h6oqbvnyqgj21h80tx76u.jpg)
+
 ## 安装
 
 可以通过composer 安装
