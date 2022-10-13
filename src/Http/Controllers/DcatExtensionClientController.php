@@ -31,7 +31,7 @@ class DcatExtensionClientController extends AdminController
     {
         return Grid::make(new AdminExtensionRepository(), function (Grid $grid) {
             $grid->disableRowSelector();
-            $grid->getActionClass(TextActions::class);
+            $grid->setActionClass(TextActions::class);
             $grid->disableCreateButton();
             $grid->column('title','包名')
                  ->display(function ($title) {
