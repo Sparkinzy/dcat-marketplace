@@ -2,6 +2,7 @@
 
 namespace Sparkinzy\DcatExtensionClient\Http\Controllers;
 
+
 use Dcat\Admin\Form;
 use Dcat\Admin\Grid;
 use Dcat\Admin\Http\Controllers\AdminController;
@@ -9,6 +10,7 @@ use Dcat\Admin\Layout\Content;
 use Dcat\Admin\Admin;
 use Sparkinzy\DcatExtensionClient\Actions\Grid\AdminExtensionInstallAction;
 use Sparkinzy\DcatExtensionClient\Repositories\AdminExtensionRepository;
+use Sparkinzy\DcatExtensionClient\Displayers\TextActions;
 
 class DcatExtensionClientController extends AdminController
 {
@@ -29,6 +31,7 @@ class DcatExtensionClientController extends AdminController
     {
         return Grid::make(new AdminExtensionRepository(), function (Grid $grid) {
             $grid->disableRowSelector();
+            $grid->getActionClass(TextActions::class);
             $grid->disableCreateButton();
             $grid->column('title','包名')
                  ->display(function ($title) {
@@ -50,9 +53,13 @@ HTML;
 
                 $actions->disableDelete();
                 $actions->disableQuickEdit();
+                $actions->disableView();
+                $actions->disableEdit();
+
             });
             $grid->filter(function (Grid\Filter $filter) {
                 $filter->like('title','包名');
+                $filter->panel()->expand();
             });
         });
     }

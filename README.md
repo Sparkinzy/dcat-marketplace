@@ -49,3 +49,6 @@ PR 通过修改 updates 中的 AdminExtensionsTableSeeder.php 新增即可
 
 
 
+## 感谢
+
+[Dcat Admin](https://github.com/jqhph/dcat-admin)
