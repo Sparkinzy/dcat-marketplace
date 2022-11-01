@@ -8,5 +8,9 @@ return [
     ],
     '1.0.1' => [
         '优化表现层'
+    ],
+    '1.0.2' => [
+        '新增websocket扩展',
+        'AdminExtensionsTableSeeder.php'
     ]
 ];
