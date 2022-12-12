@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Sparkinzy\DcatExtensionClient\Models;
+use Sparkinzy\DcatExtensionClient\Models\AdminExtensionRepository;
 use Illuminate\Database\Seeder;
 
 class AdminExtensionsTableSeeder extends Seeder
@@ -15,8 +15,8 @@ class AdminExtensionsTableSeeder extends Seeder
     public function run()
     {
         // extensions table
-        Sparkinzy\DcatExtensionClient\Models\AdminExtensionRepository::truncate();
-        Sparkinzy\DcatExtensionClient\Models\AdminExtensionRepository::insert(
+        AdminExtensionRepository::truncate();
+        AdminExtensionRepository::insert(
             [
                 [
                     "logo" => NULL,
