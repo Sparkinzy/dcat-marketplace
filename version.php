@@ -12,5 +12,8 @@ return [
     '1.0.2' => [
         '新增websocket扩展',
         'AdminExtensionsTableSeeder.php'
+    ],
+    '1.0.3' => [
+        '修复seeder命名空间错误'
     ]
 ];

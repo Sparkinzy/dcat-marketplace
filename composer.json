@@ -3,7 +3,7 @@
     "alias": "",
     "description": "Dcat扩展市场",
     "type": "library",
-    "version" : "1.0.2",
+    "version" : "1.0.3",
     "keywords": ["dcat-admin", "extension"],
     "homepage": "https://github.com/sparkinzy/dcat-extension-client",
     "license": "MIT",
