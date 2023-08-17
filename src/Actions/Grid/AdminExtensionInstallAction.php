@@ -2,8 +2,6 @@
 
 namespace Sparkinzy\DcatExtensionClient\Actions\Grid;
 
-use Sparkinzy\DcatExtensionClient\Exceptions\DcatExtensionInstallException;
-use Sparkinzy\DcatExtensionClient\Traits\DownloadZipTrait;
 use Dcat\Admin\Actions\Response;
 use Dcat\Admin\Admin;
 use Dcat\Admin\Grid\RowAction;
@@ -11,6 +9,7 @@ use Dcat\Admin\Traits\HasPermissions;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Sparkinzy\DcatExtensionClient\Traits\DownloadZipTrait;
 
 class AdminExtensionInstallAction extends RowAction
 {
@@ -24,21 +23,21 @@ class AdminExtensionInstallAction extends RowAction
     /**
      * Handle the action request.
      *
-     * @param  Request  $request
+     * @param Request $request
      *
      * @return Response
      */
     public function handle(Request $request)
     {
-
-        $zip_url  = $request->get('zip_url');
-        $title    = $request->get('title');
-        $zip_name = substr($zip_url,
-            strrpos($zip_url, '/')+1,
+        $zip_url = $request->get('zip_url');
+        $title = $request->get('title');
+        $zip_name = substr(
+            $zip_url,
+            strrpos($zip_url, '/') + 1,
         );
-        $zip_version = trim($zip_name,'.zip');
+        $zip_version = trim($zip_name, '.zip');
         $extension_dir = storage_path('extensions');
-        if (!is_dir($extension_dir)){
+        if (!is_dir($extension_dir)) {
             mkdir($extension_dir);
         }
         $zip_file = $extension_dir.'/'.$title.'-'.$zip_version.'.zip';
@@ -48,8 +47,7 @@ class AdminExtensionInstallAction extends RowAction
                 $this->downloadZipFile($zip_url, $zip_file);
                 if (!file_exists($zip_file)) {
                     return $this->response()
-                                ->error('压缩包下载失败')
-                    ;
+                                ->error('压缩包下载失败');
                 }
             }
             $manager = Admin::extension();
@@ -67,11 +65,10 @@ class AdminExtensionInstallAction extends RowAction
 
             return $this->response()->error($e->getMessage());
         } finally {
-            if (! empty($zip_file)) {
+            if (!empty($zip_file)) {
                 @unlink($zip_file);
             }
         }
-
     }
 
     public function actionScript()
@@ -112,16 +109,16 @@ JS;
      */
     public function confirm()
     {
-        return ['确认?', '确认安装扩展【'.($this->row()->title).'】'];
+        return ['确认?', '确认安装扩展【'.$this->row()->title.'】'];
     }
 
     /**
-     * @param  Model|Authenticatable|HasPermissions|null  $user
+     * @param Model|Authenticatable|HasPermissions|null $user
      *
      * @return bool
      */
-    protected function authorize($user)
-    : bool {
+    protected function authorize($user): bool
+    {
         return true;
     }
 
@@ -133,12 +130,12 @@ JS;
         return [
             'zip_url' => $this->row->zip_url,
             'title'   => $this->row->title,
-            'version' => $this->row->version
+            'version' => $this->row->version,
         ];
     }
 
     /**
-     * 获取本地插件版本
+     * 获取本地插件版本.
      *
      * @param $name
      *
@@ -146,8 +143,9 @@ JS;
      */
     protected function getPluginVersion($name)
     {
-        # 数据库数据主要针对已安装扩展的启用和禁用，真实数据还要从
+        // 数据库数据主要针对已安装扩展的启用和禁用，真实数据还要从
         $installed_extenion = Admin::extension($name);
+
         return $installed_extenion->version ?? null;
     }
 }

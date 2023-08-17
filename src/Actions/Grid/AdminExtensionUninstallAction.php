@@ -14,7 +14,7 @@ class AdminExtensionUninstallAction extends RowAction
     /**
      * @return string
      */
-	protected $title = '卸载&nbsp;&nbsp;';
+    protected $title = '卸载&nbsp;&nbsp;';
 
     /**
      * Handle the action request.
@@ -33,12 +33,12 @@ class AdminExtensionUninstallAction extends RowAction
     }
 
     /**
-	 * @return string|array|void
-	 */
-	public function confirm()
-	{
-		 return ['确认?', '确认要卸载【'.$this->row()->title.'】'];
-	}
+     * @return string|array|void
+     */
+    public function confirm()
+    {
+        return ['确认?', '确认要卸载【'.$this->row()->title.'】'];
+    }
 
     /**
      * @param Model|Authenticatable|HasPermissions|null $user
