@@ -2,8 +2,8 @@
 
 namespace Sparkinzy\DcatExtensionClient\Repositories;
 
-use Sparkinzy\DcatExtensionClient\Models\AdminExtensionRepository as Model;
 use Dcat\Admin\Repositories\EloquentRepository;
+use Sparkinzy\DcatExtensionClient\Models\AdminExtensionRepository as Model;
 
 class AdminExtensionRepository extends EloquentRepository
 {

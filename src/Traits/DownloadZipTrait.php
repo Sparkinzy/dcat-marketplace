@@ -2,7 +2,6 @@
 
 namespace Sparkinzy\DcatExtensionClient\Traits;
 
-use Sparkinzy\DcatExtensionClient\Exceptions\DcatExtensionInstallException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
@@ -14,6 +13,7 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\RetryMiddleware;
 use Psr\Http\Message\ResponseInterface;
+use Sparkinzy\DcatExtensionClient\Exceptions\DcatExtensionInstallException;
 
 trait DownloadZipTrait
 {
@@ -21,19 +21,19 @@ trait DownloadZipTrait
      * @param $url
      * @param $file
      *
-     * @return void
      * @throws DcatExtensionInstallException
      * @throws \GuzzleHttp\Exception\GuzzleException
+     *
+     * @return void
      */
     protected function downloadZipFile($url, $file)
     {
         try {
-            $client   = $this->downloadClient();
+            $client = $this->downloadClient();
             $response = $client->get($url);
-            $body     = $response->getBody();
-            $status   = $response->getStatusCode();
+            $body = $response->getBody();
+            $status = $response->getStatusCode();
             if ($status == 404) {
-
                 throw new DcatExtensionInstallException('安装包不存在');
             }
             $zip_content = $body->getContents();
@@ -41,14 +41,13 @@ trait DownloadZipTrait
                 throw new DcatExtensionInstallException('安装包不存在');
             }
             file_put_contents($file, $zip_content);
-        }catch (RequestException $exception){
+        } catch (RequestException $exception) {
             throw new DcatExtensionInstallException('下载链接超时，请重试：'.$exception->getMessage());
         }
-
     }
 
     /**
-     * 获取下载httpclient
+     * 获取下载httpclient.
      *
      * @return Client
      */
@@ -63,12 +62,15 @@ trait DownloadZipTrait
             'headers'         => [
                 'Referer'    => request()->fullUrl(),
                 'User-Agent' => 'sparkinzy.dcat-extension-client',
-            ]
+            ],
         ];
-        $stack   = HandlerStack::create(new CurlHandler());
-        $stack->push(Middleware::retry($this->retryDecider(),
-            $this->retryDelay()));
+        $stack = HandlerStack::create(new CurlHandler());
+        $stack->push(Middleware::retry(
+            $this->retryDecider(),
+            $this->retryDelay()
+        ));
         $options['handler'] = $stack;
+
         return new Client($options);
     }
 
@@ -107,13 +109,13 @@ trait DownloadZipTrait
     }
 
     /**
-     * delay 1s 2s 3s 4s 5s
+     * delay 1s 2s 3s 4s 5s.
      *
      * @return \Closure
      */
     public function retryDelay()
     {
-        return function ($numberOfRetries, ResponseInterface $response=null) {
+        return function ($numberOfRetries, ResponseInterface $response = null) {
             if (is_null($response) || !$response->hasHeader('Retry-After')) {
                 return RetryMiddleware::exponentialDelay($numberOfRetries);
             }
@@ -124,6 +126,7 @@ trait DownloadZipTrait
                 $retryAfter = (new \DateTime($retryAfter))->getTimestamp()
                     - time();
             }
+
             return (int) $retryAfter * 1000;
         };
     }
