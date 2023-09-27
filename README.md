@@ -1,4 +1,4 @@
-# Dcat Extension Client
+# Dcat Market Place V2.0
 
 dcat admin 扩展市场
 
@@ -11,7 +11,7 @@ dcat admin 扩展市场
 可以通过composer 安装
 
 ```bash 
-composer require sparkinzy/dcat-extension-client
+composer require sparkinzy/dcat-marketplace
 ```
 
 也可以通过zip本地安装
