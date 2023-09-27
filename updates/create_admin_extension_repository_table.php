@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateAdminExtensionRepositoryTable extends Migration
 {
+    private $table = 'admin_extension_v2_repositories';
     /**
      * Run the migrations.
      *
@@ -13,7 +14,7 @@ class CreateAdminExtensionRepositoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('admin_extension_repositories', function (Blueprint $table) {
+        Schema::create($this->table, function (Blueprint $table) {
             $table->increments('id');
             $table->string('logo')->nullable()->comment('图标');
             $table->string('title')->default('')->comment('名称');
@@ -32,6 +33,6 @@ class CreateAdminExtensionRepositoryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admin_extension_repositories');
+        Schema::dropIfExists($this->table);
     }
 }
