@@ -17,12 +17,12 @@ composer require sparkinzy/dcat-extension-client
 也可以通过zip本地安装
 
 ```bash 
-wget https://github.com/Sparkinzy/dcat-extension-client/archive/refs/heads/master.zip
+wget https://github.com/Sparkinzy/dcat-marketplace/archive/refs/heads/master.zip
 ```
 
 安装此扩展后， 在系统默认的 扩展 中启用
 
-然后访问完整路径： /admin/dcat-extension-client
+然后访问完整路径： /admin/dcat-marketplace
 
 访问路径可通过 扩展 -》 设置  修改
 
@@ -52,3 +52,4 @@ PR 通过修改 updates 中的 AdminExtensionsTableSeeder.php 新增即可
 ## 感谢
 
 [Dcat Admin](https://github.com/jqhph/dcat-admin)
+[DcatAdmin扩展和项目](https://learnku.com/articles/70305)

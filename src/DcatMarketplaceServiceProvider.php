@@ -1,10 +1,10 @@
 <?php
 
-namespace Sparkinzy\DcatExtensionClient;
+namespace Sparkinzy\DcatMarketPlace;
 
 use Dcat\Admin\Extend\ServiceProvider;
 
-class DcatExtensionClientServiceProvider extends ServiceProvider
+class DcatMarketplaceServiceProvider extends ServiceProvider
 {
     protected $js = [
     ];

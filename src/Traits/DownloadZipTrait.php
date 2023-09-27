@@ -1,6 +1,6 @@
 <?php
 
-namespace Sparkinzy\DcatExtensionClient\Traits;
+namespace Sparkinzy\DcatMarketPlace\Traits;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ConnectException;
@@ -13,7 +13,7 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\RetryMiddleware;
 use Psr\Http\Message\ResponseInterface;
-use Sparkinzy\DcatExtensionClient\Exceptions\DcatExtensionInstallException;
+use Sparkinzy\DcatMarketPlace\Exceptions\DcatExtensionInstallException;
 
 trait DownloadZipTrait
 {

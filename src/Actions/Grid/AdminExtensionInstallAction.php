@@ -1,6 +1,6 @@
 <?php
 
-namespace Sparkinzy\DcatExtensionClient\Actions\Grid;
+namespace Sparkinzy\DcatMarketPlace\Actions\Grid;
 
 use Dcat\Admin\Actions\Response;
 use Dcat\Admin\Admin;
@@ -9,7 +9,7 @@ use Dcat\Admin\Traits\HasPermissions;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
-use Sparkinzy\DcatExtensionClient\Traits\DownloadZipTrait;
+use Sparkinzy\DcatMarketPlace\Traits\DownloadZipTrait;
 
 class AdminExtensionInstallAction extends RowAction
 {

@@ -1,11 +1,11 @@
 {
-    "name": "sparkinzy/dcat-extension-client",
+    "name": "sparkinzy/dcat-marketplace",
     "alias": "",
     "description": "Dcat扩展市场",
     "type": "library",
-    "version" : "1.0.3",
+    "version" : "2.0.0",
     "keywords": ["dcat-admin", "extension"],
-    "homepage": "https://github.com/sparkinzy/dcat-extension-client",
+    "homepage": "https://github.com/sparkinzy/dcat-marketplace",
     "license": "MIT",
     "authors": [
         {
@@ -19,14 +19,14 @@
     },
     "autoload": {
         "psr-4": {
-            "Sparkinzy\\DcatExtensionClient\\": "src/"
+            "Sparkinzy\\DcatMarketPlace\\": "src/"
         }
     },
     "extra": {
-        "dcat-admin": "Sparkinzy\\DcatExtensionClient\\DcatExtensionClientServiceProvider",
+        "dcat-admin": "Sparkinzy\\DcatMarketPlace\\DcatMarketplaceServiceProvider",
         "laravel": {
             "providers": [
-                "Sparkinzy\\DcatExtensionClient\\DcatExtensionClientServiceProvider"
+                "Sparkinzy\\DcatMarketPlace\\DcatMarketplaceServiceProvider"
             ]
         }
     }

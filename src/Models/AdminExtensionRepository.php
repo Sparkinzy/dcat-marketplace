@@ -1,6 +1,6 @@
 <?php
 
-namespace Sparkinzy\DcatExtensionClient\Models;
+namespace Sparkinzy\DcatMarketPlace\Models;
 
 use Dcat\Admin\Traits\HasDateTimeFormatter;
 use Illuminate\Database\Eloquent\Model;

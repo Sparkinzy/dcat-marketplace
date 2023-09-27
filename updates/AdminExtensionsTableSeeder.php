@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Sparkinzy\DcatExtensionClient\Models\AdminExtensionRepository;
+use Sparkinzy\DcatMarketPlace\Models\AdminExtensionRepository;
 
 class AdminExtensionsTableSeeder extends Seeder
 {

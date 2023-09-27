@@ -1,6 +1,6 @@
 <?php
 
-namespace Sparkinzy\DcatExtensionClient\Exceptions;
+namespace Sparkinzy\DcatMarketPlace\Exceptions;
 
 use Dcat\Admin\Admin;
 use Exception;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Sparkinzy\DcatExtensionClient;
+namespace Sparkinzy\DcatMarketPlace;
 
 use Dcat\Admin\Extend\Setting as Form;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Sparkinzy\DcatExtensionClient\Actions\Grid;
+namespace Sparkinzy\DcatMarketPlace\Actions\Grid;
 
 use Dcat\Admin\Actions\Response;
 use Dcat\Admin\Grid\RowAction;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Sparkinzy\DcatExtensionClient\Displayers;
+namespace Sparkinzy\DcatMarketPlace\Displayers;
 
 use Dcat\Admin\Grid\Displayers\Actions;
 

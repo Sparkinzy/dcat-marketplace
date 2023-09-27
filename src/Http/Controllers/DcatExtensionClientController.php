@@ -1,16 +1,16 @@
 <?php
 
-namespace Sparkinzy\DcatExtensionClient\Http\Controllers;
+namespace Sparkinzy\DcatMarketPlace\Http\Controllers;
 
 use Dcat\Admin\Admin;
 use Dcat\Admin\Grid;
 use Dcat\Admin\Http\Controllers\AdminController;
 use Dcat\Admin\Layout\Content;
-use Sparkinzy\DcatExtensionClient\Actions\Grid\AdminExtensionInstallAction;
-use Sparkinzy\DcatExtensionClient\Displayers\TextActions;
-use Sparkinzy\DcatExtensionClient\Repositories\AdminExtensionRepository;
+use Sparkinzy\DcatMarketPlace\Actions\Grid\AdminExtensionInstallAction;
+use Sparkinzy\DcatMarketPlace\Displayers\TextActions;
+use Sparkinzy\DcatMarketPlace\Repositories\AdminExtensionRepository;
 
-class DcatExtensionClientController extends AdminController
+class DcatMarketPlaceController extends AdminController
 {
     public function index(Content $content)
     {
