@@ -15,7 +15,7 @@ class DcatMarketPlaceController extends AdminController
     public function index(Content $content)
     {
         return $content
-            ->title('Dcat扩展商店')
+            ->title('应用市场')
             ->description('主要收集一些符合dcat扩展格式的包')
             ->body($this->grid());
     }
@@ -31,15 +31,19 @@ class DcatMarketPlaceController extends AdminController
             $grid->disableRowSelector();
             $grid->setActionClass(TextActions::class);
             $grid->disableCreateButton();
+            $grid->column('#')
+                 ->display(function ()use($grid){
+                     return '#'.($this->_index+1+request('per_page',$grid->getPerPage())*(request('page',1)-1));
+                 })->width(60);
             $grid->column('title', '包名')
                  ->display(function ($title) {
                      return <<<HTML
-<a target="_blank" href="{$this->home_page}">{$title}</a>
+<a target="_blank" href="{$this->home_page}"><i class="feather icon-globe"></i>&nbsp;{$title}</a>
 HTML;
                  })
-                 ->width(300);
-            $grid->column('detail', '描述')->width(400);
-            $grid->column('version', '当前版本');
+                 ->width(350);
+            $grid->column('detail', '描述');
+            $grid->column('version', '当前版本')->width(120);
 
             $grid->actions(function (Grid\Displayers\Actions $actions) {
                 if (Admin::extension()->has($actions->row->title)) {
