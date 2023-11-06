@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateAdminExtensionRepositoryTable extends Migration
 {
-    private $table = 'admin_extension_v2_repositories';
+    private $table = 'admin_extension_repositories';
     /**
      * Run the migrations.
      *
